@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>For Swathi 🎀</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    background: linear-gradient(135deg, #ffe4ef, #fff5d7, #e9ddff);
+    color: #49384f;
+    overflow-x: hidden;
+}
+
+.screen {
+    min-height: 100vh;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+    text-align: center;
+}
+
+.screen.active {
+    display: flex;
+}
+
+.card {
+    width: 100%;
+    max-width: 520px;
+    background: rgba(255,255,255,0.82);
+    border: 3px solid white;
+    border-radius: 30px;
+    padding: 35px 25px;
+    box-shadow: 0 15px 50px rgba(120,70,120,0.18);
+    backdrop-filter: blur(10px);
+}
+
+.stickers {
+    font-size: 45px;
+    margin-bottom: 15px;
+    animation: float 3s ease-in-out infinite;
+}
+
+h1 {
+    font-size: 34px;
+    margin: 10px 0 15px;
+}
+
+h2 {
+    font-size: 26px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+button {
+    border: none;
+    background: #ff82ad;
+    color: white;
+    padding: 14px 25px;
+    border-radius: 30px;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 8px;
+    box-shadow: 0 7px 18px rgba(255,100,150,0.25);
+    transition: 0.2s;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.03);
+}
+
+input {
+    width: 90%;
+    max-width: 350px;
+    padding: 14px;
+    border-radius: 20px;
+    border: 2px solid #f1bdd0;
+    outline: none;
+    font-size: 17px;
+    text-align: center;
+    margin: 15px 0;
+}
+
+.error {
+    min-height: 30px;
+    color: #e4577d;
+    font-weight: bold;
+}
+
+.success {
+    color: #55a66a;
+    font-weight: bold;
+}
+
+.shayari {
+    background: #fff7fb;
+    border-radius: 25px;
+    padding: 25px 18px;
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 2;
+    border: 2px dashed #f2a5c0;
+}
+
+.final {
+    font-size: 30px;
+    color: #e65c91;
+}
+
+.small {
+    font-size: 14px;
+    opacity: 0.7;
+}
+
+.heart {
+    position: fixed;
+    pointer-events: none;
+    animation: rise 4s linear forwards;
+    font-size: 25px;
+}
+
+.confetti {
+    position: fixed;
+    pointer-events: none;
+    animation: fall 4s linear forwards;
+    font-size: 25px;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes rise {
+    from {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-50px) rotate(0deg);
+    }
+    to {
+        transform: translateY(110vh) rotate(720deg);
+    }
+}
+
+.fade {
+    animation: fade 0.7s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- START -->
+<section class="screen active" id="start">
+    <div class="card fade">
+        <div class="stickers">🎀 🐰 🌸</div>
+
+        <h1>Hey Swathi... 👀</h1>
+
+        <p>
+            I made something for you.
+        </p>
+
+        <p>
+            It's not exactly a birthday wish...
+            <br>
+            because that would be way too easy. 😌
+        </p>
+
+        <p>
+            You have to earn it. 😈
+        </p>
+
+        <button onclick="go('riddle1')">
+            Start the nonsense 🎁
+        </button>
+
+        <p class="small">No cheating. 👀</p>
+    </div>
+</section>
+
+
+<!-- RIDDLE 1 -->
+<section class="screen" id="riddle1">
+    <div class="card fade">
+
+        <div class="stickers">🧩 ⏰ 🐻</div>
+
+        <h2>Riddle #1</h2>
+
+        <p>
+            I have a face but no eyes.<br>
+            I have hands but no arms.<br>
+            I can tell you something,<br>
+            but I can never speak.
+        </p>
+
+        <p><b>What am I?</b> 🤔</p>
+
+        <input id="answer1" placeholder="Type your answer...">
+
+        <br>
+
+        <button onclick="check1()">Unlock 🔓</button>
+
+        <div class="error" id="error1"></div>
+    </div>
+</section>
+
+
+<!-- RIDDLE 2 -->
+<section class="screen" id="riddle2">
+    <div class="card fade">
+
+        <div class="stickers">🌸 👀 🐰</div>
+
+        <h2>Riddle #2</h2>
+
+        <p>
+            I follow you everywhere,<br>
+            but I never speak.
+            <br><br>
+            I appear when there is light,
+            <br>
+            and disappear when there is none.
+        </p>
+
+        <p><b>What am I?</b></p>
+
+        <input id="answer2" placeholder="Think carefully...">
+
+        <br>
+
+        <button onclick="check2()">Try your luck 😌</button>
+
+        <div class="error" id="error2"></div>
+    </div>
+</section>
+
+
+<!-- RIDDLE 3 -->
+<section class="screen" id="riddle3">
+    <div class="card fade">
+
+        <div class="stickers">🔊 🌷 🐻</div>
+
+        <h2>Riddle #3</h2>
+
+        <p>
+            I don't have a mouth,
+            <br>
+            but I can answer you.
+            <br><br>
+            I don't have ears,
+            <br>
+            but I can repeat what you say.
+        </p>
+
+        <p><b>What am I?</b> 👀</p>
+
+        <input id="answer3" placeholder="Your answer...">
+
+        <br>
+
+        <button onclick="check3()">Unlock 🔓</button>
+
+        <div class="error" id="error3"></div>
+    </div>
+</section>
+
+
+<!-- PAVAZHA / RIDDHIMA -->
+<section class="screen" id="choice">
+    <div class="card fade">
+
+        <div class="stickers">🐰 🎀 👀</div>
+
+        <h2>Okay... one important question.</h2>
+
+        <p>
+            Suppose I tell Pavazha and Riddhima
+            something embarrassing about you...
+        </p>
+
+        <p>
+            <b>Who would expose you first? 😂</b>
+        </p>
+
+        <button onclick="choiceAnswer('Pavazha')">
+            Pavazha 😭
+        </button>
+
+        <button onclick="choiceAnswer('Riddhima')">
+            Riddhima 😂
+        </button>
+
+        <p id="choiceResult" class="success"></p>
+    </div>
+</section>
+
+
+<!-- MALAYALAM RIDDLE -->
+<section class="screen" id="riddle4">
+    <div class="card fade">
+
+        <div class="stickers">🌴 🌸 🐘</div>
+
+        <h2>Okay, Malayalam round 🇮🇳</h2>
+
+        <p>
+            ഞാൻ സംസാരിക്കില്ല,<br>
+            പക്ഷേ നീ പറയുന്നത് തിരികെ പറയും.
+        </p>
+
+        <p>
+            <b>ഞാൻ ആരാണ്?</b> 🤔
+        </p>
+
+        <p class="small">
+            Hint: You've already solved this once. 👀
+        </p>
+
+        <input id="answer4" placeholder="Answer...">
+
+        <br>
+
+        <button onclick="check4()">Unlock 💗</button>
+
+        <div class="error" id="error4"></div>
+    </div>
+</section>
+
+
+<!-- FINAL RIDDLE -->
+<section class="screen" id="finalRiddle">
+    <div class="card fade">
+
+        <div class="stickers">🔐 🎂 💗</div>
+
+        <h2>FINAL RIDDLE</h2>
+
+        <p>
+            I happen only once every year.
+            <br><br>
+            People may celebrate me,
+            ignore me,
+            or pretend I'm not important.
+            <br><br>
+            But without me,
+            you wouldn't be here today.
+        </p>
+
+        <p>
+            <b>What am I?</b> 🎂
+        </p>
+
+        <input id="answer5" placeholder="Final answer...">
+
+        <br>
+
+        <button onclick="check5()">OPEN THE FINAL SURPRISE 🔓</button>
+
+        <div class="error" id="error5"></div>
+    </div>
+</section>
+
+
+<!-- FINAL MESSAGE -->
+<section class="screen" id="final">
+    <div class="card fade">
+
+        <div class="stickers">🎂 🎀 🌸 🐰 💗</div>
+
+        <h1 class="final">You made it. 🥹</h1>
+
+        <p>
+            Okayyy Swathi...
+            <br>
+            you actually went through all of that. 😂
+        </p>
+
+        <p>
+            I know you don't really celebrate birthdays,
+            but it's still an important day,
+            so <b>live this day a little.</b> 🌸
+        </p>
+
+        <p>
+            I could've just sent you a simple
+            <i>"Happy Birthday"</i>...
+            <br>
+            but where's the fun in that? 😌
+        </p>
+
+        <p>
+            So here's the little thing I actually wanted
+            you to read today. 🫶
+        </p>
+
+        <div class="shayari">
+
+            खुद को भी कभी खुद से मिलाया करो,<br>
+            जो हो तुम, उसी को दिल से अपनाया करो।<br>
+            दुनिया तो कमियाँ गिनाती रहेगी उम्र भर,<br>
+            तुम खुद को हर हाल में गले लगाया करो।
+
+        </div>
+
+        <p style="margin-top:25px;">
+            I hope this year gives you lots of reasons
+            to smile, laugh and make good memories. 🌷
+        </p>
+
+        <h1>Happy Birthday, Swathi! 🎂💗</h1>
+
+        <p>
+            Stay the same cute, slightly crazy person
+            you are. 🐰😂
+        </p>
+
+        <p>
+            And yes...
+            <br>
+            <b>don't forget my treat. 👀🍰</b>
+        </p>
+
+        <p class="small">
+            Made with unnecessary amounts of effort. 🎀
+        </p>
+
+    </div>
+</section>
+
+
+<script>
+
+function go(id) {
+
+    document.querySelectorAll(".screen").forEach(function(screen) {
+        screen.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+
+    window.scrollTo(0,0);
+}
+
+
+/* RIDDLE 1 */
+
+function check1() {
+
+    let answer =
+        document.getElementById("answer1").value
+        .trim()
+        .toLowerCase();
+
+    if(answer === "clock" || answer === "a clock") {
+
+        go("riddle2");
+
+    } else {
+
+        document.getElementById("error1").innerText =
+            "❌ Nope 😂 Think about something with hands...";
+
+    }
+}
+
+
+/* RIDDLE 2 */
+
+function check2() {
+
+    let answer =
+        document.getElementById("answer2").value
+        .trim()
+        .toLowerCase();
+
+    if(answer === "shadow" || answer === "a shadow") {
+
+        go("riddle3");
+
+    } else {
+
+        document.getElementById("error2").innerText =
+            "❌ Nope 😭 It follows you everywhere...";
+
+    }
+}
+
+
+/* RIDDLE 3 */
+
+function check3() {
+
+    let answer =
+        document.getElementById("answer3").value
+        .trim()
+        .toLowerCase();
+
+    if(answer === "echo" || answer === "an echo") {
+
+        go("choice");
+
+    } else {
+
+        document.getElementById("error3").innerText =
+            "❌ Hmm... listen carefully 👀";
+
+    }
+}
+
+
+/* CHOICE */
+
+function choiceAnswer(name) {
+
+    document.getElementById("choiceResult").innerText =
+        "😂 I knew you'd pick " + name + "!";
+    
+    setTimeout(function() {
+
+        go("riddle4");
+
+    }, 1200);
+}
+
+
+/* MALAYALAM RIDDLE */
+
+function check4() {
+
+    let answer =
+        document.getElementById("answer4").value
+        .trim()
+        .toLowerCase();
+
+    if(
+        answer === "echo" ||
+        answer === "an echo" ||
+        answer === "പ്രതിധ്വനി"
+    ) {
+
+        go("finalRiddle");
+
+    } else {
+
+        document.getElementById("error4").innerText =
+            "❌ Almost! Hint: same answer as Riddle #3 👀";
+
+    }
+}
+
+
+/* FINAL RIDDLE */
+
+function check5() {
+
+    let answer =
+        document.getElementById("answer5").value
+        .trim()
+        .toLowerCase();
+
+    if(
+        answer === "birthday" ||
+        answer === "birth day" ||
+        answer === "a birthday"
+    ) {
+
+        go("final");
+
+        celebration();
+
+    } else {
+
+        document.getElementById("error5").innerText =
+            "❌ Not quite... Think about why today exists. 🎂";
+
+    }
+}
+
+
+/* CELEBRATION */
+
+function celebration() {
+
+    let emojis = [
+        "🎉","🎀","💗","🌸","🐰",
+        "🎂","✨","💕","🌷","⭐"
+    ];
+
+    for(let i = 0; i < 45; i++) {
+
+        let item = document.createElement("div");
+
+        item.className = "confetti";
+
+        item.innerText =
+            emojis[Math.floor(Math.random() * emojis.length)];
+
+        item.style.left =
+            Math.random() * 100 + "vw";
+
+        item.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.body.appendChild(item);
+
+        setTimeout(function() {
+            item.remove();
+        }, 6000);
+    }
+
+    for(let i = 0; i < 15; i++) {
+
+        let heart = document.createElement("div");
+
+        heart.className = "heart";
+
+        heart.innerText = "💗";
+
+        heart.style.left =
+            Math.random() * 100 + "vw";
+
+        heart.style.animationDelay =
+            Math.random() * 2 + "s";
+
+        document.body.appendChild(heart);
+
+        setTimeout(function() {
+            heart.remove();
+        }, 5000);
+    }
+}
+
+</script>
+
+</body>
+</html>
